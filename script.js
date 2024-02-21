@@ -64,15 +64,18 @@ function continueGame() {
 
   function checkKeyNdDecide(e) {
     if (e.key === char) {
+      // update score
       score += 1
       scoreEl.textContent = score
       
+      // generate new key
       char = generateCharNdHighlightKey() 
-      console.log('keyup:', char);
     } else {
+      // update life
       life -= 1
       lifeEl.textContent = life
 
+      // game over
       if (life === 0) {
         window.removeEventListener('keyup', checkKeyNdDecide)
         setActiveSection(resultSectEl)
@@ -82,7 +85,6 @@ function continueGame() {
   }
 
   window.addEventListener('keyup', checkKeyNdDecide)
-
 }
 
 // start game
